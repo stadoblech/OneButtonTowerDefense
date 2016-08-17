@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ShotHandler : MonoBehaviour {
+public class ShotMovement : MonoBehaviour {
 
     public float shotSpeed;
 

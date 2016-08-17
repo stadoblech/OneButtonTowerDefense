@@ -9,6 +9,7 @@ public class EnemiesWaypointsHandler : MonoBehaviour {
     public float startRoundTime;
     public float enemySpawnCooldown;
     public float enemySpeed;
+    public float enemiesLife;
 
     List<Transform> points;
 
@@ -44,13 +45,15 @@ public class EnemiesWaypointsHandler : MonoBehaviour {
         }
         GameObject o = (GameObject)Instantiate(enemyToSpawn, spawnPoint.transform.position, Quaternion.identity);
         EnemyPointsMovement movement = o.GetComponent<EnemyPointsMovement>();
+        EnemyLifeHandler life = o.GetComponent<EnemyLifeHandler>();
         movement.waypoints = points;
         movement.lastWaypoint = endPoint;
         movement.movingSpeed = enemySpeed;
+        life.life = enemiesLife;
 
         StartCoroutine(spawnEnemies(enemySpawnCooldown));
     }
-	// Update is called once per frame
+
 	void Update () {
 	    
 	}

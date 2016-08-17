@@ -6,6 +6,7 @@ public class TilesController : MonoBehaviour {
 
     public Color32 activeTileColor;
     public GameObject towerObject;
+    public float costForBuildingTower;
 
     List<GameObject> tiles;
 
@@ -23,7 +24,12 @@ public class TilesController : MonoBehaviour {
             tiles.Add(t.gameObject);
         }
 
-        defaultColor = tiles[0].GetComponent<SpriteRenderer>().color;
+        defaultColor = tiles[0].GetComponent<TextMesh>().color;
+
+        for(int i = 0;i<tiles.Count;i++)
+        {
+            tiles[i].GetComponent<TextMesh>().text = (i + 1).ToString();
+        }
     }
 	
 	void Update () {
@@ -38,8 +44,8 @@ public class TilesController : MonoBehaviour {
         {
             previousIndex = tiles.Count-1;
         }
-        tiles[activeTileIndex].GetComponent<SpriteRenderer>().color = activeTileColor;
-        tiles[previousIndex].GetComponent<SpriteRenderer>().color = defaultColor;
+        tiles[activeTileIndex].GetComponent<TextMesh>().color = activeTileColor;
+        tiles[previousIndex].GetComponent<TextMesh>().color = defaultColor;
     }
 
     void checkForTileAction()
@@ -50,11 +56,11 @@ public class TilesController : MonoBehaviour {
             TowerActivator towerActivation = activeTower.GetComponent<TowerActivator>();
             if (!towerActivation.towerActivated)
             {
-                Instantiate(towerObject, activeTower.transform.position, Quaternion.identity, activeTower.transform);
+                Vector3 shiftedPosition = new Vector3(activeTower.transform.position.x-0.01f,activeTower.transform.position.y-0.05f);
+                Instantiate(towerObject, shiftedPosition, Quaternion.identity, activeTower.transform);
                 towerActivation.towerActivated = true;
             }
             InputController.resetKeycodeStatus();
-            return;
         }
         if (InputController.keyCodeStatus == InputController.KeycodeStatus.Pressed)
         {
