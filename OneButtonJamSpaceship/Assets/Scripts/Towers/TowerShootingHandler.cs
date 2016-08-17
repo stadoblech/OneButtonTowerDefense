@@ -18,22 +18,22 @@ public class TowerShootingHandler : MonoBehaviour {
 	}
 	
 	void Update () {
-        if(shootTimer <= 0 && onTowerRange)
-        {
-            shootTimer = shootingCooldown;
-        }
-        shootTimer -= Time.deltaTime;
+        
 	}
 
     void OnTriggerStay2D(Collider2D coll)
     {
-        onTowerRange = true;
-        if (coll.tag == "Enemy" && shootTimer <= 0)
+        if (coll.tag == "Enemy")
         {
-            GameObject o = (GameObject)Instantiate(shoot,transform.position,Quaternion.identity);
-            o.GetComponent<ShotMovement>().target = coll.transform;
-            o.GetComponent<ShotMovement>().shotSpeed = this.shotSpeed;
-            o.GetComponent<ShotDamageHandler>().DamageDone = shotDamage;
+            if (shootTimer <= 0)
+            {
+                shootTimer = shootingCooldown;
+                GameObject o = (GameObject)Instantiate(shoot, transform.position, Quaternion.identity);
+                o.GetComponent<ShotMovement>().target = coll.transform;
+                o.GetComponent<ShotMovement>().shotSpeed = this.shotSpeed;
+                o.GetComponent<ShotDamageHandler>().DamageDone = shotDamage;
+            }
+            shootTimer -= Time.deltaTime;
         }
     }
 

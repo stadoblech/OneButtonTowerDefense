@@ -14,7 +14,10 @@ public class InputController : MonoBehaviour {
 
     static float keyholdTime;
 
+    bool holdDown;
+
 	void Start () {
+        holdDown = false;
         keyholdTime = 0;
         keyCodeStatus = KeycodeStatus.None;
 	}

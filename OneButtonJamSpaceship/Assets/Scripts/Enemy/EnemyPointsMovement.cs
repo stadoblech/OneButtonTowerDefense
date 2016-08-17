@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class EnemyPointsMovement : MonoBehaviour {
     public float movingSpeed;
+    float resizeOnEndPoint = 3f;
     public List<Transform> waypoints
     {
         get; set;
@@ -25,11 +26,20 @@ public class EnemyPointsMovement : MonoBehaviour {
             if(currentWaypointIndex > waypoints.Count-1)
             {
                 /// HERE IS HIT
-                Destroy(gameObject);
+                /// 
+                if (transform.localScale.x >= 0.2f)
+                {
+                    float res = transform.localScale.x - resizeOnEndPoint * Time.deltaTime;
+                    transform.localScale = new Vector3(res, res);
+                }
+                
+
                 currentWaypointIndex = waypoints.Count - 1;
             }
         }
         transform.position = Vector3.MoveTowards(transform.position,getNextPosition(),movingSpeed*Time.deltaTime);
+        if (transform.localScale.x < 0.2f)
+            Destroy(gameObject);
     }
 
     Vector3 getNextPosition()
