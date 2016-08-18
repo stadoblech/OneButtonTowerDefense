@@ -52,6 +52,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b211aeb5fbf67947b5359836ba31101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startAmountOfCredits: 20
+  costForBuldingTower: 0
+  maxCoreIntegrity: 0
+  coreDamageHit: 0
+  coreIntegrityText: {fileID: 0}
+  creditsText: {fileID: 0}
 --- !u!114 &114000013432681090
 MonoBehaviour:
   m_ObjectHideFlags: 1

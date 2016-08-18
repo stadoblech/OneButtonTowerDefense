@@ -26,7 +26,7 @@ public class TowerActivator : MonoBehaviour {
     }
 	void Update () {
         coll.enabled = towerActivated;
-        /*
+        
         if(towerActivated)
         {
             toweLifeSpan -= Time.deltaTime;
@@ -41,7 +41,7 @@ public class TowerActivator : MonoBehaviour {
             }
             
         }
-        */
+        
 	}
 
     

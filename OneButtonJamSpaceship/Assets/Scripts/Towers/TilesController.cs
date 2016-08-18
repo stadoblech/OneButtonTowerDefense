@@ -6,7 +6,6 @@ public class TilesController : MonoBehaviour {
 
     public Color32 activeTileColor;
     public GameObject towerObject;
-    public float costForBuildingTower;
 
     List<GameObject> tiles;
 

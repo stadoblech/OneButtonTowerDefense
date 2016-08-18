@@ -6,7 +6,9 @@ public class EnemyLifeHandler : MonoBehaviour {
     public float life;
 
     Vector3 originalScale;
-	void Start () {
+
+    void Start()
+    {
         originalScale = transform.localScale;
 	}
 	
@@ -33,4 +35,6 @@ public class EnemyLifeHandler : MonoBehaviour {
         float downSide = life * originalScale.x;
         return (float)(dmg / downSide);
     }
+
+    
 }

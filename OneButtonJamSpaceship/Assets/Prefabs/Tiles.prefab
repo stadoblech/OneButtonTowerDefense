@@ -348,7 +348,7 @@ MonoBehaviour:
   shoot: {fileID: 1000014202557486, guid: e60fb95cbd5e59c4bb44b34cbd04cc8d, type: 2}
   shootingCooldown: 1.2
   shotSpeed: 4
-  shotDamage: 1.7
+  shotDamage: 0.3
 --- !u!114 &114000011529139344
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -363,7 +363,7 @@ MonoBehaviour:
   shoot: {fileID: 1000014202557486, guid: e60fb95cbd5e59c4bb44b34cbd04cc8d, type: 2}
   shootingCooldown: 1.2
   shotSpeed: 4
-  shotDamage: 1.7
+  shotDamage: 0.3
 --- !u!114 &114000012419110784
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -375,7 +375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57021a274c994241a52c0b2c817138e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerLiveExpectation: 100
+  towerLiveExpectation: 200
 --- !u!114 &114000013503367970
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -402,7 +402,7 @@ MonoBehaviour:
   shoot: {fileID: 1000014202557486, guid: e60fb95cbd5e59c4bb44b34cbd04cc8d, type: 2}
   shootingCooldown: 1.2
   shotSpeed: 4
-  shotDamage: 1.7
+  shotDamage: 0.3
 --- !u!114 &114000014170630286
 MonoBehaviour:
   m_ObjectHideFlags: 1
