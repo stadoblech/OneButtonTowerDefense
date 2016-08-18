@@ -36,12 +36,4 @@ public class TowerShootingHandler : MonoBehaviour {
             shootTimer -= Time.deltaTime;
         }
     }
-
-    void OnTriggerExit2D(Collider2D coll)
-    {
-        if (coll.tag == "Enemy")
-        {
-            onTowerRange = false;
-        }
-    }
 }
