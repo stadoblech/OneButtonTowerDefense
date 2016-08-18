@@ -13,7 +13,10 @@ public class TilesController : MonoBehaviour {
 
     Color32 defaultColor;
 
+    GameLogic gameLogic;
+
 	void Start () {
+        gameLogic = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameLogic>();
         activeTileIndex = 0;
 
         tiles = new List<GameObject>();
@@ -53,7 +56,7 @@ public class TilesController : MonoBehaviour {
         {
             GameObject activeTower = tiles[activeTileIndex];
             TowerActivator towerActivation = activeTower.GetComponent<TowerActivator>();
-            if (!towerActivation.towerActivated)
+            if (!towerActivation.towerActivated && gameLogic.isBuildingAllowed())
             {
                 Vector3 shiftedPosition = new Vector3(activeTower.transform.position.x-0.01f,activeTower.transform.position.y-0.05f);
                 Instantiate(towerObject, shiftedPosition, Quaternion.identity, activeTower.transform);

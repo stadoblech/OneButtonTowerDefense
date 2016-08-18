@@ -15,6 +15,7 @@ public class GameLogic : MonoBehaviour {
 
     public Text coreIntegrityText;
     public Text creditsText;
+    public Text levelInfoText;
 
     public string retrySceneName;
     public string nextSceneName;
@@ -39,8 +40,9 @@ public class GameLogic : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        creditsText.text = actualAmountOfCredits.ToString();
-        coreIntegrityText.text = getCoreIntegrity().ToString();
+        creditsText.text = "Credits: "+actualAmountOfCredits.ToString();
+        coreIntegrityText.text = "Level integrity: "+getCoreIntegrity().ToString()+"%";
+        levelInfoText.text = "Tower cost: " + costForBuldingTower + "\n" + "Credits for kill: " + rewardForKill;
         if(getCoreIntegrity() <= 0)
         {
             SceneManager.LoadScene(retrySceneName);
@@ -70,5 +72,15 @@ public class GameLogic : MonoBehaviour {
     public void endRound()
     {
         SceneManager.LoadScene(nextSceneName);
+    }
+
+    public bool isBuildingAllowed()
+    {
+        if(costForBuldingTower <= actualAmountOfCredits)
+        {
+            actualAmountOfCredits -= costForBuldingTower;
+            return true;
+        }
+        return false;
     }
 }

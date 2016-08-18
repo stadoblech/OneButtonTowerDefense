@@ -23,7 +23,7 @@ GameObject:
   - 114: {fileID: 114000012561843402}
   m_Layer: 0
   m_Name: GameController
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53,11 +53,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startAmountOfCredits: 20
-  costForBuldingTower: 0
-  maxCoreIntegrity: 0
-  coreDamageHit: 0
+  costForBuldingTower: 10
+  rewardForKill: 2
+  maxCoreIntegrity: 20
+  coreDamageHit: 2
   coreIntegrityText: {fileID: 0}
   creditsText: {fileID: 0}
+  levelInfoText: {fileID: 0}
+  retrySceneName: RetryScene
+  nextSceneName: sc2
 --- !u!114 &114000013432681090
 MonoBehaviour:
   m_ObjectHideFlags: 1
